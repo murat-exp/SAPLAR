@@ -18,7 +18,7 @@ SAPLAR analyzes the server response to identify common LFI signatures and indica
 
 ## Features
 
-###Multi-Vector LFI Injection
+### Multi-Vector LFI Injection
 
 SAPLAR automatically injects payloads into multiple request locations:
 
@@ -29,7 +29,7 @@ SAPLAR automatically injects payloads into multiple request locations:
 
 
 
-###Wide LFI Payload Database
+### Wide LFI Payload Database
 
 Includes hundreds of payloads targeting:
 
@@ -41,7 +41,7 @@ Includes hundreds of payloads targeting:
 
 
 
-##utomatic Encoding & WAF Bypass
+### Automatic Encoding & WAF Bypass
 
 Payloads can be encoded automatically to bypass security protections like WAF (Web Application Firewalls) and input validation filters.
 
@@ -52,7 +52,7 @@ Payloads can be encoded automatically to bypass security protections like WAF (W
 
 
 
-##Signature-Based Response Analysis
+### Signature-Based Response Analysis
 
 SAPLAR scans responses for known LFI indicators, such as:
 
@@ -63,7 +63,7 @@ SAPLAR scans responses for known LFI indicators, such as:
 
 
 
-##Header & Cookie-Based Injection
+### Header & Cookie-Based Injection
 
 Injects LFI payloads into common headers:
 
@@ -79,7 +79,7 @@ Cookie Manipulation: Tries injecting LFI payloads into cookie values.
 
 
 
-##GUI Integration in Burp Suite
+### GUI Integration in Burp Suite
 
 SAPLAR provides a user-friendly graphical interface in Burp Suite.
 

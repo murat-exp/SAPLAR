@@ -87,3 +87,52 @@ SAPLAR provides a user-friendly graphical interface in Burp Suite.
 - **Right-click on any request in Burp and select "Scan for LFI".**
 - **Real-time exploit status updates (Exploited, Not Vulnerable, Possible LFI).**
 
+
+
+## Installation
+
+- **Open Burp Suite and navigate to Extender → Extensions.**
+- **Click Add, select Python, and load SAPLAR.py.**
+- **The "LFI Scan" tab will appear in Burp Suite.**
+
+
+
+## Usage
+
+### Active LFI Scanning
+
+- **Enable automatic scanning in Burp’s proxy or scanner settings.**
+- **SAPLAR will inject payloads and analyze the responses.**
+- **If an LFI vulnerability is detected, it will be flagged in the LFI Scan tab.**
+
+
+### Manual LFI Scanning
+
+- **Right-click on any HTTP request in Burp Proxy, Repeater, or Scanner.**
+- **Select "Scan for LFI" from the context menu.**
+- **View the results in the LFI Scan panel.**
+
+
+## Signature-Based Detection & Exploit Confirmation
+
+SAPLAR performs heuristic-based detection by analyzing HTTP responses.
+
+
+- **Direct File Output:**
+
+"root:x:0:0" → Indicates successful passwd file read.
+"[boot loader]" → Windows system file.
+"NT AUTHORITY\\SYSTEM" → Windows privilege escalation.
+
+
+- **Error Messages:**
+
+"failed to open stream" → Indicates file inclusion attempt.
+"No such file or directory" → Confirms traversal attempt but file not found.
+
+
+- **False Positive Prevention:**
+
+Content-Length Analysis
+403/404 Page Detection
+

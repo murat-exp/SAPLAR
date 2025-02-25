@@ -121,7 +121,9 @@ SAPLAR performs heuristic-based detection by analyzing HTTP responses.
 - **Direct File Output:**
 
 "root:x:0:0" → Indicates successful passwd file read.
+
 "[boot loader]" → Windows system file.
+
 "NT AUTHORITY\\SYSTEM" → Windows privilege escalation.
 
 

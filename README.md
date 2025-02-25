@@ -155,3 +155,8 @@ SAPLAR is **one of the most powerful LFI detection tools within Burp Suite**.
 It combines **automated scanning**, **intelligent payload injection**, **advanced encoding techniques**, and **signature-based detection** to uncover **critical LFI vulnerabilities**.  
 
 🔹 **If you have any suggestions or want to contribute, feel free to open a pull request!**  
+
+---
+
+![checker](saplar1.png)
+![checker](saplar2.png)

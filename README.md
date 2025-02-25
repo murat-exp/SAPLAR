@@ -1,71 +1,70 @@
-# SAPLAR
-SAPLAR - LFI &amp; Path Traversal Scanner
+# SAPLAR - LFI & Path Traversal Scanner
 
+## 📌 Project Overview
 
-## Project Overview
+SAPLAR is a powerful **Burp Suite extension** designed to **detect Local File Inclusion (LFI) and Path Traversal vulnerabilities** in web applications. This tool is built for **penetration testers, bug bounty hunters, and security researchers** who need an **automated, flexible, and highly efficient** LFI scanner within Burp Suite.
 
-SAPLAR is a powerful Burp Suite extension designed to detect Local File Inclusion (LFI) and Path Traversal vulnerabilities in web applications. It is specifically built for penetration testers, bug bounty hunters, and security researchers who need an automated, flexible, and highly efficient LFI scanner within Burp Suite.
-
-This tool injects LFI payloads into various parts of the HTTP request, including:
+SAPLAR injects **LFI payloads** into various parts of HTTP requests, including:
 
 - **GET Parameters**
 - **POST Data**
 - **Cookies**
 - **HTTP Headers**
 
-SAPLAR analyzes the server response to identify common LFI signatures and indicators. It features automated active scanning, manual scanning, and multiple encoding options to bypass security filters.
+It then analyzes the **server response** to identify **LFI signatures**, potential file disclosures, and error patterns.
 
+---
 
-## Features
+## ⚡ Features
 
-### Multi-Vector LFI Injection
+### ✅ Multi-Vector LFI Injection
 
-SAPLAR automatically injects payloads into multiple request locations:
+SAPLAR automatically injects **payloads into multiple request locations**:
 
-- **Query Parameters (?file=../../etc/passwd)**
-- **POST Body (file=../../etc/passwd)**
-- **Cookies (session=../../etc/passwd)**
-- **HTTP Headers (User-Agent, Referer, X-Forwarded-For, Authorization, etc.)**
+- **Query Parameters** (`?file=../../etc/passwd`)
+- **POST Body** (`file=../../etc/passwd`)
+- **Cookies** (`session=../../etc/passwd`)
+- **HTTP Headers** (`User-Agent, Referer, X-Forwarded-For, Authorization, etc.`)
 
+---
 
+### ✅ Wide LFI Payload Database
 
-### Wide LFI Payload Database
+Includes **hundreds of payloads** targeting:
 
-Includes hundreds of payloads targeting:
+- **Linux systems** (`/etc/passwd`, `/proc/self/environ`, `/var/log/auth.log`)
+- **Windows systems** (`C:\Windows\win.ini`, `C:\boot.ini`, `C:\Users\Administrator\NTUSER.DAT`)
+- **PHP Wrappers** (`php://filter/convert.base64-encode/resource=index.php`)
+- **Log file extraction** (`../../../../var/log/apache2/access.log`)
+- **Remote inclusion possibilities** (`http://evil.com/shell.php`)
 
-- **Linux systems (/etc/passwd, /proc/self/environ, /var/log/auth.log)**
-- **Windows systems (C:\Windows\win.ini, C:\boot.ini, C:\Users\Administrator\NTUSER.DAT)**
-- **PHP Wrappers (php://filter/convert.base64-encode/resource=index.php)**
-- **Log file extraction (../../../../var/log/apache2/access.log)**
-- **Remote inclusion possibilities (http://evil.com/shell.php)**
+---
 
+### ✅ Automatic Encoding & WAF Bypass
 
-
-### Automatic Encoding & WAF Bypass
-
-Payloads can be encoded automatically to bypass security protections like WAF (Web Application Firewalls) and input validation filters.
+Payloads can be **automatically encoded** to bypass **security protections** such as **WAF (Web Application Firewalls)** and **input validation filters**:
 
 - **Base64 Encoding**
 - **URL Encoding (Single, Double, Triple)**
 - **HEX Encoding**
 - **Unicode Encoding**
 
+---
 
+### ✅ Signature-Based Response Analysis
 
-### Signature-Based Response Analysis
+SAPLAR scans **responses** for **known LFI indicators**, such as:
 
-SAPLAR scans responses for known LFI indicators, such as:
+- **System Users:** `"root:x:0:0:"`, `"NT AUTHORITY\\SYSTEM"`
+- **Configuration Files:** `"[boot loader]"`, `"kernel.core_pattern"`
+- **Error Messages:** `"failed to open stream"`, `"No such file or directory"`
+- **False Positive Filtering:** Detects **standard 403/404 responses** and **bypasses false positives**.
 
-- **System Users: "root:x:0:0:", "NT AUTHORITY\\SYSTEM"**
-- **Configuration Files: "[boot loader]", "kernel.core_pattern"**
-- **Error Messages: "failed to open stream", "No such file or directory"**
-- **False Positive Filtering: Detects standard 403/404 responses**
+---
 
+### ✅ Header & Cookie-Based Injection
 
-
-### Header & Cookie-Based Injection
-
-Injects LFI payloads into common headers:
+Injects **LFI payloads** into common headers:
 
 - **User-Agent**
 - **Referer**
@@ -74,67 +73,85 @@ Injects LFI payloads into common headers:
 - **X-Api-Key**
 - **Accept-Charset**
 
-Cookie Manipulation: Tries injecting LFI payloads into cookie values.
+Also attempts **cookie manipulation** by injecting **LFI payloads into session tokens and authentication cookies**.
 
+---
 
+### ✅ GUI Integration in Burp Suite
 
+SAPLAR provides a **user-friendly** graphical interface within Burp Suite:
 
-### GUI Integration in Burp Suite
+- **A dedicated "LFI Scan" tab** for managing scans.
+- **Right-click any request** in Burp and select `"Scan for LFI"`.
+- **Real-time exploit status updates** (`Exploited, Not Vulnerable, Possible LFI`).
 
-SAPLAR provides a user-friendly graphical interface in Burp Suite.
+---
 
-- **A dedicated LFI Scan tab to manage scans.**
-- **Right-click on any request in Burp and select "Scan for LFI".**
-- **Real-time exploit status updates (Exploited, Not Vulnerable, Possible LFI).**
+## 🔧 Installation
 
+1️⃣ **Open Burp Suite** and navigate to **Extender → Extensions**.  
+2️⃣ **Click "Add"**, select **Python**, and load `SAPLAR.py`.  
+3️⃣ The **"LFI Scan"** tab will now appear in Burp Suite.  
 
+---
 
-## Installation
+## 🚀 Usage
 
-- **Open Burp Suite and navigate to Extender → Extensions.**
-- **Click Add, select Python, and load SAPLAR.py.**
-- **The "LFI Scan" tab will appear in Burp Suite.**
+### 🔹 Active LFI Scanning
 
+1️⃣ **Enable automatic scanning** in Burp’s **Proxy or Scanner settings**.  
+2️⃣ SAPLAR will **inject payloads** and **analyze the responses**.  
+3️⃣ If an **LFI vulnerability** is detected, it will be **flagged in the LFI Scan tab**.  
 
+---
 
-## Usage
+### 🔹 Manual LFI Scanning
 
-### Active LFI Scanning
+1️⃣ **Right-click** on any HTTP request in **Burp Proxy, Repeater, or Scanner**.  
+2️⃣ Select **"Scan for LFI"** from the context menu.  
+3️⃣ View the **results** in the **LFI Scan panel**.  
 
-- **Enable automatic scanning in Burp’s proxy or scanner settings.**
-- **SAPLAR will inject payloads and analyze the responses.**
-- **If an LFI vulnerability is detected, it will be flagged in the LFI Scan tab.**
+---
 
+## 🔍 Signature-Based Detection & Exploit Confirmation
 
-### Manual LFI Scanning
+SAPLAR **analyzes HTTP responses** for **LFI-related patterns**.
 
-- **Right-click on any HTTP request in Burp Proxy, Repeater, or Scanner.**
-- **Select "Scan for LFI" from the context menu.**
-- **View the results in the LFI Scan panel.**
+### 📌 **Direct File Output**
+- `"root:x:0:0"` → Indicates **successful passwd file read**.
+- `"[boot loader]"` → Indicates **Windows system file leakage**.
+- `"NT AUTHORITY\\SYSTEM"` → **Windows privilege escalation** detected.
 
+### 📌 **Error Messages**
+- `"failed to open stream"` → **Indicates file inclusion attempt**.
+- `"No such file or directory"` → **Confirms path traversal attempt**.
 
-## Signature-Based Detection & Exploit Confirmation
+### 📌 **False Positive Prevention**
+- **Content-Length Analysis**  
+- **403/404 Page Detection**  
 
-SAPLAR performs heuristic-based detection by analyzing HTTP responses.
+---
 
+## 🔥 Planned Features (Upcoming Enhancements)
 
-- **Direct File Output:**
+🚀 **Advanced Fuzzing** – Automate **LFI detection** with **dynamic payloads**.  
+🚀 **More Encoding Methods** – **Triple encoding** & **custom bypass techniques**.  
+🚀 **Full RFI Support** – **Test for Remote File Inclusion vulnerabilities**.  
+🚀 **XSS & SQLi Detection** – Expand to **other common web vulnerabilities**.  
 
-"root:x:0:0" → Indicates successful passwd file read.
+---
 
-"[boot loader]" → Windows system file.
+## ⚠ Legal Disclaimer
 
-"NT AUTHORITY\\SYSTEM" → Windows privilege escalation.
+SAPLAR is **intended for authorized security testing and educational purposes only**.  
+🚫 **Unauthorized testing** against systems **without explicit permission is illegal**.  
+✅ **By using this tool, you agree to abide by ethical hacking principles**.  
 
+---
 
-- **Error Messages:**
+## 🏆 Conclusion
 
-"failed to open stream" → Indicates file inclusion attempt.
-"No such file or directory" → Confirms traversal attempt but file not found.
+SAPLAR is **one of the most powerful LFI detection tools within Burp Suite**.  
+It combines **automated scanning**, **intelligent payload injection**, **advanced encoding techniques**, and **signature-based detection** to uncover **critical LFI vulnerabilities**.  
 
-
-- **False Positive Prevention:**
-
-Content-Length Analysis
-403/404 Page Detection
-
+🔹 **If you have any suggestions or want to contribute, feel free to open a pull request!**  

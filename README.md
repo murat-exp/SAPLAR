@@ -1,4 +1,4 @@
-# SAPLAR - LFI & Path Traversal Scanner
+# SAPLAR - LFI & Path Traversal Scanner - Burp Suite Extension
 
 ## 📌 Project Overview
 

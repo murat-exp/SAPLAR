@@ -164,5 +164,5 @@ We are actively working on a **Hacker Mode** feature that executes advanced RCE 
 
 ---
 
-![checker](saplar1.png)
-![checker](saplar2.png)
+![checker](saplarnew.png)
+

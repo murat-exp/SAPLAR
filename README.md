@@ -73,7 +73,7 @@ Injects **LFI payloads** into common headers:
 - **X-Api-Key**
 - **Accept-Charset**
 
-Also attempts **cookie manipulation** by injecting **LFI payloads into session tokens and authentication cookies**.
+Also attempts **cookie manipulation** by injecting **LFI payloads** into session tokens and authentication cookies.
 
 ---
 
@@ -89,9 +89,9 @@ SAPLAR provides a **user-friendly** graphical interface within Burp Suite:
 
 ## 🔧 Installation
 
-1️⃣ **Open Burp Suite** and navigate to **Extender → Extensions**.  
-2️⃣ **Click "Add"**, select **Python**, and load `SAPLAR.py`.  
-3️⃣ The **"LFI Scan"** tab will now appear in Burp Suite.  
+1. **Open Burp Suite** and navigate to **Extender → Extensions**.  
+2. **Click "Add"**, select **Python**, and load `SAPLAR.py`.  
+3. The **"LFI Scan"** tab will now appear in Burp Suite.  
 
 ---
 
@@ -99,17 +99,17 @@ SAPLAR provides a **user-friendly** graphical interface within Burp Suite:
 
 ### 🔹 Active LFI Scanning
 
-1️⃣ **Enable automatic scanning** in Burp’s **Proxy or Scanner settings**.  
-2️⃣ SAPLAR will **inject payloads** and **analyze the responses**.  
-3️⃣ If an **LFI vulnerability** is detected, it will be **flagged in the LFI Scan tab**.  
+1. **Enable automatic scanning** in Burp’s **Proxy or Scanner settings**.  
+2. SAPLAR will **inject payloads** and **analyze the responses**.  
+3. If an **LFI vulnerability** is detected, it will be **flagged in the LFI Scan tab**.  
 
 ---
 
 ### 🔹 Manual LFI Scanning
 
-1️⃣ **Right-click** on any HTTP request in **Burp Proxy, Repeater, or Scanner**.  
-2️⃣ Select **"Scan for LFI"** from the context menu.  
-3️⃣ View the **results** in the **LFI Scan panel**.  
+1. **Right-click** on any HTTP request in **Burp Proxy, Repeater, or Scanner**.  
+2. Select **"Scan for LFI"** from the context menu.  
+3. View the **results** in the **LFI Scan panel**.  
 
 ---
 
@@ -134,10 +134,10 @@ SAPLAR **analyzes HTTP responses** for **LFI-related patterns**.
 
 ## 🔥 Planned Features (Upcoming Enhancements)
 
-🚀 **Advanced Fuzzing** – Automate **LFI detection** with **dynamic payloads**.  
-🚀 **More Encoding Methods** – **Triple encoding** & **custom bypass techniques**.  
-🚀 **Full RFI Support** – **Test for Remote File Inclusion vulnerabilities**.  
-🚀 **XSS & SQLi Detection** – Expand to **other common web vulnerabilities**.  
+- **Advanced Fuzzing** – Automate **LFI detection** with **dynamic payloads**.  
+- **More Encoding Methods** – **Triple encoding** & **custom bypass techniques**.  
+- **Full RFI Support** – **Test for Remote File Inclusion vulnerabilities**.  
+- **XSS & SQLi Detection** – Expand to **other common web vulnerabilities**.  
 
 ---
 
@@ -152,9 +152,15 @@ SAPLAR is **intended for authorized security testing and educational purposes on
 ## 🏆 Conclusion
 
 SAPLAR is **one of the most powerful LFI detection tools within Burp Suite**.  
-It combines **automated scanning**, **intelligent payload injection**, **advanced encoding techniques**, and **signature-based detection** to uncover **critical LFI vulnerabilities**.  
+It combines **automated scanning**, **intelligent payload injection**, **advanced encoding techniques**, and **signature-based detection** to uncover **critical LFI vulnerabilities**.
 
-🔹 **If you have any suggestions or want to contribute, feel free to open a pull request!**  
+**If you have any suggestions or want to contribute, feel free to open a pull request!**
+
+---
+
+## 💻 Hacker Mode (Under Development)
+
+We are actively working on a **Hacker Mode** feature that executes advanced RCE attempts on identified vulnerabilities. This feature is still under development and may not be fully stable yet—stay tuned for future updates and improvements!
 
 ---
 
